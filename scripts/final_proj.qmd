@@ -1,10 +1,9 @@
 ---
 title: "final_proj"
 author: "Maritza Ruiz and Steven Todd McIntyre II"
+abstract: "placeholder"
 format: html
 ---
-
-# Abstract
 
 # Introduction
 
