@@ -5,6 +5,7 @@ abstract: "placeholder"
 format: 
   html:
     toc: true
+bibliography: references.bib
 ---
 
 # Introduction
