@@ -12,6 +12,8 @@ bibliography: references.bib
 
 # Methods
 
+Utilizing R [@R], we
+
 # Results
 
 # Discussion
