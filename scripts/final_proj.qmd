@@ -4,4 +4,14 @@ author: "Maritza Ruiz and Steven Todd McIntyre II"
 format: html
 ---
 
+# Abstract
+
 # Introduction
+
+# Methods
+
+# Results
+
+# Discussion
+
+# References
