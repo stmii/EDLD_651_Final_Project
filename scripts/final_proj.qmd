@@ -42,11 +42,11 @@ overall_persistence <- import(
       "2022",
       "2023"
     ),
-    names_to = "year",
+    names_to = "entering_cohort_year",
     values_to = "rate"
   ) |>
   clean_names() |>
-  mutate(year = as.numeric(year))
+  mutate(entering_cohort_year = as.numeric(entering_cohort_year))
 ```
 
 # Results
