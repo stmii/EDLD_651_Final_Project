@@ -28,7 +28,7 @@ library(janitor)
 # [x]   pivot_longer
 # [x]    mutate
 # []    select
-# []    filter
+# [x]    filter
 # []    pivot_wider
 # []    group_by
 # []    summarize
@@ -66,9 +66,8 @@ overall_persistence <- import(
 overall_persistence |>
   filter(starting_enrollment_intensity == "All", metric == "Second Fall Persistence") |>
   ggplot(aes(x=entering_cohort_year, y=rate)) +
-  geom_line(aes(color = sector)) 
-  
-  
+  geom_line(aes(color = sector)) +
+  labs(title = "Second Fall Persistence Across College Types")
 
 ```
 
