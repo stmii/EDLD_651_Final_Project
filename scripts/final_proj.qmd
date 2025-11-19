@@ -29,7 +29,7 @@ library(janitor)
 # [x]    mutate
 # []    select
 # [x]    filter
-# []    pivot_wider
+# [x]    pivot_wider
 # []    group_by
 # []    summarize
 
@@ -40,17 +40,7 @@ overall_persistence <- import(
     skip = 2
   ) |>
   pivot_longer(
-    cols = c(
-      "2015",
-      "2016",
-      "2017",
-      "2018",
-      "2019",
-      "2020",
-      "2021",
-      "2022",
-      "2023"
-    ),
+    cols = starts_with("20"),
     names_to = "entering_cohort_year",
     values_to = "rate"
   ) |>
