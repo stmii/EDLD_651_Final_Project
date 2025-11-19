@@ -24,6 +24,15 @@ library(here)
 library(knitr)
 library(janitor)
 
+# must use:
+# [x]   pivot_longer
+# [x]    mutate
+# []    select
+# []    filter
+# []    pivot_wider
+# []    group_by
+# []    summarize
+
 # import and clean data
 overall_persistence <- import(
     here("data/PersistenceandRetention2025_Appendix.xlsx"), 
@@ -47,9 +56,21 @@ overall_persistence <- import(
   ) |>
   clean_names() |>
   mutate(entering_cohort_year = as.numeric(entering_cohort_year))
+
+  overall_persistence
 ```
 
 # Results
+```{r}
+# create visualization A
+overall_persistence |>
+  filter(starting_enrollment_intensity == "All", metric == "Second Fall Persistence") |>
+  ggplot(aes(x=entering_cohort_year, y=rate)) +
+  geom_line(aes(color = sector)) 
+  
+  
+
+```
 
 # Discussion
 
