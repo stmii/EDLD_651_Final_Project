@@ -54,6 +54,10 @@ overall_persistence <- import(
     names_to = "entering_cohort_year",
     values_to = "rate"
   ) |>
+  pivot_wider(
+    names_from = "Metric",
+    values_from = "rate"
+  ) |>
   clean_names() |>
   mutate(entering_cohort_year = as.numeric(entering_cohort_year))
 
@@ -64,10 +68,9 @@ overall_persistence <- import(
 ```{r}
 # create visualization A
 overall_persistence |>
-  filter(starting_enrollment_intensity == "All", metric == "Second Fall Persistence") |>
-  ggplot(aes(x=entering_cohort_year, y=rate)) +
-  geom_line(aes(color = sector)) +
-  labs(title = "Second Fall Persistence Across College Types")
+  filter(starting_enrollment_intensity == "All") |>
+  ggplot(aes(x=entering_cohort_year, y=second_fall_retention)) +
+  geom_line(aes(color = sector)) 
 
 ```
 
