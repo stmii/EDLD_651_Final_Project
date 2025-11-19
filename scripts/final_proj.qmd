@@ -6,13 +6,48 @@ format:
   html:
     toc: true
 bibliography: references.bib
+execute:
+  echo: false
+  warning: false
 ---
 
 # Introduction
 
 # Methods
 
-Utilizing R [@R], we
+This analysis utilized R [@R] and the following R libraries: tidyverse [@tidyverse], rio [@rio], knitr [@knitr], here [@here], and janitor [@janitor].
+```{r}
+# load libraries
+library(tidyverse)
+library(rio)
+library(here)
+library(knitr)
+library(janitor)
+
+# import and clean data
+overall_persistence <- import(
+    here("data/PersistenceandRetention2025_Appendix.xlsx"), 
+    sheet = "1. Overall", 
+    skip = 2
+  ) |>
+  pivot_longer(
+    cols = c(
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023"
+    ),
+    names_to = "year",
+    values_to = "rate"
+  ) |>
+  clean_names() |>
+  mutate(year = as.numeric(year))
+```
 
 # Results
 
