@@ -15,7 +15,6 @@ execute:
 
 # Methods
 
-Testing that it works
 This analysis utilized R [@R] and the following R libraries: tidyverse [@tidyverse], rio [@rio], knitr [@knitr], here [@here], and janitor [@janitor].
 ```{r}
 # load libraries
@@ -24,6 +23,7 @@ library(rio)
 library(here)
 library(knitr)
 library(janitor)
+library(ggplot2)
 
 # must use:
 # [x]   pivot_longer
@@ -53,6 +53,22 @@ overall_persistence <- import(
   mutate(entering_cohort_year = as.numeric(entering_cohort_year))
 
   overall_persistence
+  
+  names(overall_persistence)
+
+# Select()columns for analysis
+  overall_persistence_selected <- overall_persistence |>
+  dplyr::select(entering_cohort_year, sector, second_fall_retention)
+  
+# Groupby() summary of average retention by   #sector across all years
+sector_summary <-   overall_persistence_selected |>
+  group_by(sector) |>
+  summarize(mean_retention = mean(second_fall_retention, na.rm = TRUE))
+
+# Average retention by year across sectors
+year_summary <- overall_persistence_selected |>
+  group_by(entering_cohort_year) |>
+  summarize(mean_retention = mean(second_fall_retention, na.rm = TRUE))
 ```
 
 # Results
@@ -65,6 +81,84 @@ overall_persistence |>
 
 ```
 
+Maritza Note: I don't like this plot(the one below) but need to play with the data
+```{r}
+# Line plot:Retention trends by sector
+overall_persistence_selected |>
+  ggplot(aes(x = entering_cohort_year, y = second_fall_retention, color = sector)) +
+  geom_line(size = 0.25) +
+  labs(
+    title = "Second Fall Retention by Sector",
+    x = "Cohort Year",
+    y = "Retention Rate",
+    color = "Sector"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(color = "black"),
+    axis.ticks = element_line(color = "black"),
+    plot.title = element_text(size = 11, hjust = 0.5)
+  )
+```
+Retention rates show consistent differences across sectors. Private institutions generally maintain higher second-fall retention compared to public institutions, though both sectors demonstrate gradual improvement over time.
+
+```{r}
+#Bar chart: mean retention by sector
+#Need to make title larger
+sector_summary |>
+  ggplot(aes(x = sector, y = mean_retention, fill = sector)) +
+  geom_col() +
+  labs(
+    title = "Average Second Fall Retention by Sector",
+    x = "Sector",
+    y = "Mean Retention Rate",
+    fill = "Types of Sector"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(color = "black"),
+    axis.ticks = element_line(color = "black"),
+    axis.text = element_blank(),
+    plot.title = element_text(size = 9)
+  ) +
+  scale_x_discrete(labels = c(
+    "Public" = "Pub",
+    "Private" = "Priv"
+  ))
+```
+
+Retention rates vary significantly by sector. The "All" category shows the highest average retention, indicating that when all sectors are combined, overall persistence is relatively strong. Among individual sectors, "Public 4-year" institutions and "Private nonprofit 4-year" institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence.
+In contrast, "Private for-profit 4-year" institutions have the lowest retention rate, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. "Public 2-year" and "Public PAB" sectors fall in the middle range, showing moderate retention outcomes.
+This distribution highlights the importance of sector-specific strategies when addressing student retention. Institutions with lower rates may benefit from targeted interventions, while those with higher rates could serve as models for effective retention practices.
+
+```{r}
+
+# Line plot: average retention all sectors by year
+
+year_summary |>
+  ggplot(aes(x = entering_cohort_year, y = mean_retention)) +
+  geom_line(color = "darkgreen") +
+  geom_point(color = "black", size = 2) +
+  labs(
+    title = "Average Second Fall Retention Across Sectors",
+    x = "Cohort Year",
+    y = "Mean Retention Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 12, hjust = 0.7),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(color = "black"),
+    axis.ticks = element_line(color = "black")
+  )
+```
+The trend in average second-fall retention rates across sectors from 2015 to 2023 reveals a pattern of fluctuations rather than a consistent upward or downward trajectory. Notable peaks occur around 2015, 2017, and 2021, suggesting years where institutional or policy changes may have positively influenced student persistence. Conversely, dips around 2016, 2019, and again in 2021 highlight periods of potential disruption or instability—possibly linked to external factors such as economic shifts or the COVID-19 pandemic.
+Despite these fluctuations, the overall retention rates indicate that while sector-wide efforts may yield temporary gains, sustained improvement in retention likely requires more targeted interventions. The data suggest that retention is sensitive to cohort-specific conditions and may benefit from longitudinal strategies that address both institutional and student-level factors.
 # Discussion
 
 # References
