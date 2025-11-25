@@ -15,6 +15,7 @@ execute:
 
 # Methods
 
+Testing that it works
 This analysis utilized R [@R] and the following R libraries: tidyverse [@tidyverse], rio [@rio], knitr [@knitr], here [@here], and janitor [@janitor].
 ```{r}
 # load libraries
