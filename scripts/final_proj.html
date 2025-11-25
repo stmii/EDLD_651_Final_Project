@@ -113,35 +113,6 @@ div.csl-indent {
 <section id="methods" class="level1">
 <h1>Methods</h1>
 <p>This analysis utilized R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team 2025</a>)</span> and the following R libraries: tidyverse <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, rio <span class="citation" data-cites="rio">(<a href="#ref-rio" role="doc-biblioref">Chan et al. 2023</a>)</span>, knitr <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2014</a>)</span>, here <span class="citation" data-cites="here">(<a href="#ref-here" role="doc-biblioref">Müller 2025</a>)</span>, and janitor <span class="citation" data-cites="janitor">(<a href="#ref-janitor" role="doc-biblioref">Firke 2024</a>)</span>.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 234 × 8
-   sector     starting_enrollment_…¹ entering_cohort_year first_spring_persist…²
-   &lt;chr&gt;      &lt;chr&gt;                                 &lt;dbl&gt;                  &lt;dbl&gt;
- 1 All        All                                    2015                  0.859
- 2 All        All                                    2016                  0.860
- 3 All        All                                    2017                  0.866
- 4 All        All                                    2018                  0.863
- 5 All        All                                    2019                  0.861
- 6 All        All                                    2020                  0.840
- 7 All        All                                    2021                  0.853
- 8 All        All                                    2022                  0.860
- 9 All        All                                    2023                  0.864
-10 Private f… All                                    2015                  0.764
-# ℹ 224 more rows
-# ℹ abbreviated names: ¹​starting_enrollment_intensity,
-#   ²​first_spring_persistence
-# ℹ 4 more variables: second_fall_persistence &lt;dbl&gt;,
-#   first_spring_retention &lt;dbl&gt;, second_fall_retention &lt;dbl&gt;,
-#   student_count &lt;dbl&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "sector"                        "starting_enrollment_intensity"
-[3] "entering_cohort_year"          "first_spring_persistence"     
-[5] "second_fall_persistence"       "first_spring_retention"       
-[7] "second_fall_retention"         "student_count"                </code></pre>
-</div>
-</div>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
@@ -154,7 +125,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Maritza Note: I don’t like this plot(the one below) but need to play with the data</p>
+<p>Retention rates show consistent differences across sectors. Private nonprofit and public 4-year institutions generally maintain higher second-fall retention compared to other institutions, with private for-profit and public 2-year institutions showing the lowest overall retention rates.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -164,22 +135,12 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Retention rates show consistent differences across sectors. Private institutions generally maintain higher second-fall retention compared to public institutions, though both sectors demonstrate gradual improvement over time.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="final_proj_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Retention rates vary significantly by sector. The “All” category shows the highest average retention, indicating that when all sectors are combined, overall persistence is relatively strong. Among individual sectors, “Public 4-year” institutions and “Private nonprofit 4-year” institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence. In contrast, “Private for-profit 4-year” institutions have the lowest retention rate, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. “Public 2-year” and “Public PAB” sectors fall in the middle range, showing moderate retention outcomes. This distribution highlights the importance of sector-specific strategies when addressing student retention. Institutions with lower rates may benefit from targeted interventions, while those with higher rates could serve as models for effective retention practices.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="final_proj_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="final_proj_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

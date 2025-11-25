@@ -52,9 +52,9 @@ overall_persistence <- import(
   clean_names() |>
   mutate(entering_cohort_year = as.numeric(entering_cohort_year))
 
-  overall_persistence
+#  overall_persistence
   
-  names(overall_persistence)
+#  names(overall_persistence)
 
 # Select()columns for analysis
   overall_persistence_selected <- overall_persistence |>
@@ -77,16 +77,7 @@ year_summary <- overall_persistence_selected |>
 overall_persistence |>
   filter(starting_enrollment_intensity == "All") |>
   ggplot(aes(x=entering_cohort_year, y=second_fall_retention)) +
-  geom_line(aes(color = sector)) 
-
-```
-
-Maritza Note: I don't like this plot(the one below) but need to play with the data
-```{r}
-# Line plot:Retention trends by sector
-overall_persistence_selected |>
-  ggplot(aes(x = entering_cohort_year, y = second_fall_retention, color = sector)) +
-  geom_line(size = 0.25) +
+  geom_line(aes(color = sector)) +
   labs(
     title = "Second Fall Retention by Sector",
     x = "Cohort Year",
@@ -101,8 +92,10 @@ overall_persistence_selected |>
     axis.ticks = element_line(color = "black"),
     plot.title = element_text(size = 11, hjust = 0.5)
   )
+
 ```
-Retention rates show consistent differences across sectors. Private institutions generally maintain higher second-fall retention compared to public institutions, though both sectors demonstrate gradual improvement over time.
+
+Retention rates show consistent differences across sectors. Private nonprofit and public 4-year institutions generally maintain higher second-fall retention compared to other institutions, with private for-profit and public 2-year institutions showing the lowest overall retention rates.
 
 ```{r}
 #Bar chart: mean retention by sector
