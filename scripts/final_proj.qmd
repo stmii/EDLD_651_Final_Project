@@ -82,27 +82,10 @@ sector_summary <-   overall_persistence_selected |>
 #Bar chart: mean retention by sector
 #Need to make title larger
 sector_summary |>
-  ggplot(aes(x = sector, y = mean_retention, fill = sector)) +
-  geom_col() +
-  labs(
-    title = "Average Second Fall Retention by Sector",
-    x = "Sector",
-    y = "Mean Retention Rate",
-    fill = "Types of Sector"
-  ) +
-  theme_minimal() +
-  theme(
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    axis.line = element_line(color = "black"),
-    axis.ticks = element_line(color = "black"),
-    axis.text.x = element_blank(),
-    plot.title = element_text(size = 9)
-  ) +
-  scale_x_discrete(labels = c(
-    "Public" = "Pub",
-    "Private" = "Priv"
-  ))
+  kable(
+    caption = "Average Retention by Sector (2015-2023)", 
+    col.names = c("Sector", "Mean Retention")
+  )
 ```
 
 Retention rates vary significantly by sector. Among individual sectors, "Public 4-year" institutions and "Private nonprofit 4-year" institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence.
@@ -139,7 +122,23 @@ overall_persistence |>
   filter(starting_enrollment_intensity != "All") |>
   group_by("Starting Intensity" = starting_enrollment_intensity, "Sector" = sector) |>
   summarize("Average Second Fall Retention (2015-2023)" = mean(second_fall_retention)) |>
-  kable()
+  ggplot(aes(x = `Sector`, y = `Average Second Fall Retention (2015-2023)`, fill = `Starting Intensity`)) +
+  geom_col(position = position_dodge()) +
+  labs(
+    title = "Average Second Fall Retention by Sector and Starting Intensity (2015-2023)",
+    x = "Sector",
+    y = "Mean Retention Rate",
+    fill = "Starting Intensity"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(color = "black"),
+    axis.ticks = element_line(color = "black"),
+    plot.title = element_text(size = 8),
+    axis.text.x = element_text(size = 6, angle = 45, hjust = 1)
+  )
 ```
 Across sectors, it looks like full-time students are substantially more likely to be retained into the second fall. Part-time status seems to have a relatively negligible effect on retention as compared to non-credential status, which may call into question the importance of degree-seeking status for non-full time students.
 
