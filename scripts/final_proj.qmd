@@ -6,7 +6,6 @@ format:
   html:
     toc: true
 bibliography: references.bib
-csl: apa.csl
 execute:
   echo: false
   warning: false
@@ -20,9 +19,9 @@ Second RQ if we want/need one: How does enrollment intensity (full-time vs. part
 # Introduction
 At a time when enrollment in higher education is declining, understanding how starting enrollment intensity (full-time vs. part-time) influences persistence and retention helps institutions identify barriers that affect student success and degree completion. 
 
-Colleges and universities serve increasingly diverse student populations, many of whom attend part-time due to financial, work, or family obligations. Examining differences across institutional types can reveal how structural and resource differences within higher education shape student outcomes.Research has consistently shown that first-generation and low-income students face higher risks of attrition, with dropout rates varying across institutional contexts (Cataldi, Bennett, & Chen, 2018; Engle & Tinto, 2008). For example, national data indicate that first-generation students are more likely to leave college early, particularly at public and two-year institutions where resources are more limited (Riehl, 1994). 
+Colleges and universities serve increasingly diverse student populations, many of whom attend part-time due to financial, work, or family obligations. Examining differences across institutional types can reveal how structural and resource differences within higher education shape student outcomes.Research has consistently shown that first-generation and low-income students face higher risks of attrition, with dropout rates varying across institutional contexts [@CataldiEtAl2018]. For example, national data indicate that first-generation students are more likely to leave college early, particularly at public and two-year institutions where resources are more limited [@Riehl1994]. 
 
-Recent statistics further highlight that nearly 40% of college dropouts are first-generation students, underscoring the importance of institutional type in shaping persistence (Bouchrika, 2024).State-level data also demonstrate how retention rates differ across public institutions, with Oregon’s Higher Education Coordinating Commission reporting that 83% of students at four-year public institutions continued after their first year (Oregon Higher Education Coordinating Commission, 2018). 
+Recent statistics further highlight that nearly 40% of college dropouts are first-generation students, underscoring the importance of institutional type in shaping persistence [@Bouchrika2024].State-level data also demonstrate how retention rates differ across public institutions, with Oregon’s Higher Education Coordinating Commission reporting that 83% of students at four-year public institutions continued after their first year [@HECC2018]. 
 
 These findings suggest that institutional type and enrollment intensity interact to influence student success, making it critical for higher education leaders to design targeted retention strategies, improve academic support systems, and create flexible pathways that promote persistence for all students, regardless of their enrollment status.
 
