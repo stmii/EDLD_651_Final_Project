@@ -6,6 +6,7 @@ format:
   html:
     toc: true
 bibliography: references.bib
+csl: apa.csl
 execute:
   echo: false
   warning: false
