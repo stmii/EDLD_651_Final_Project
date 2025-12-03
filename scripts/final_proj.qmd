@@ -6,28 +6,36 @@ format:
   html:
     toc: true
 bibliography: references.bib
+# if you want to apply APA 7 format
+csl: https://www.zotero.org/styles/apa
 execute:
   echo: false
   warning: false
+# Dr. Nese suggested adding this so that external resources are self-contained/embedded directly in the html file so figures/tables/images can be viewed by anyone it's shared with
+imbed_resources: true
+# I was able to render the document without any issues. There were a few typos throughout the text that I corrected, but nothing major! 
 ---
 
 # Research Question(s)
+
 What is the relationship between institutional type (public vs. private, 2-year vs. 4-year) and student retention?
 
 Second RQ if we want/need one: How does enrollment intensity (full-time vs. part-time) interact with institutional type to influence persistence and retention?
 
 # Introduction
-At a time when enrollment in higher education is declining, understanding how starting enrollment intensity (full-time vs. part-time) influences persistence and retention helps institutions identify barriers that affect student success and degree completion. 
 
-Colleges and universities serve increasingly diverse student populations, many of whom attend part-time due to financial, work, or family obligations. Examining differences across institutional types can reveal how structural and resource differences within higher education shape student outcomes.Research has consistently shown that first-generation and low-income students face higher risks of attrition, with dropout rates varying across institutional contexts [@CataldiEtAl2018]. For example, national data indicate that first-generation students are more likely to leave college early, particularly at public and two-year institutions where resources are more limited [@Riehl1994]. 
+At a time when enrollment in higher education is declining, understanding how starting enrollment intensity (full-time vs. part-time) influences persistence and retention helps institutions identify barriers that affect student success and degree completion.
 
-Recent statistics further highlight that nearly 40% of college dropouts are first-generation students, underscoring the importance of institutional type in shaping persistence [@Bouchrika2024].State-level data also demonstrate how retention rates differ across public institutions, with Oregon’s Higher Education Coordinating Commission reporting that 83% of students at four-year public institutions continued after their first year [@HECC2018]. 
+Colleges and universities serve increasingly diverse student populations, many of whom attend part-time due to financial, work, or family obligations. Examining differences across institutional types can reveal how structural and resource differences within higher education shape student outcomes. Research has consistently shown that first-generation and low-income students face higher risks of attrition, with dropout rates varying across institutional contexts [@CataldiEtAl2018]. For example, national data indicate that first-generation students are more likely to leave college early, particularly at public and two-year institutions where resources are more limited [@Riehl1994].
+
+Recent statistics further highlight that nearly 40% of college dropouts are first-generation students, underscoring the importance of institutional type in shaping persistence [@Bouchrika2024].State-level data also demonstrate how retention rates differ across public institutions, with Oregon’s Higher Education Coordinating Commission reporting that 83% of students at four-year public institutions continued after their first year [@HECC2018].
 
 These findings suggest that institutional type and enrollment intensity interact to influence student success, making it critical for higher education leaders to design targeted retention strategies, improve academic support systems, and create flexible pathways that promote persistence for all students, regardless of their enrollment status.
 
 # Methods
 
 This analysis utilized R [@R] and the following R libraries: tidyverse [@tidyverse], rio [@rio], knitr [@knitr], here [@here], and janitor [@janitor].
+
 ```{r}
 # load libraries
 library(tidyverse)
@@ -92,9 +100,7 @@ sector_summary |>
   )
 ```
 
-Retention rates vary significantly by sector. Among individual sectors, "Public 4-year" institutions and "Private nonprofit 4-year" institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence.
-In contrast, "Private for-profit 4-year" institutions have the lowest retention rate, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. "Public 2-year" and "Public PAB" sectors fall just above Private for-profit 4-year", showing moderate retention outcomes.
-This distribution highlights the importance of sector-specific strategies when addressing student retention. Institutions with lower rates may benefit from targeted interventions, while those with higher rates could serve as models for effective retention practices.
+Retention rates vary significantly by sector. Among individual sectors, "Public 4-year" institutions and "Private nonprofit 4-year" institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence. In contrast, "Private for-profit 4-year" institutions have the lowest retention rate, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. "Public 2-year" and "Public PAB" sectors fall just above "Private for-profit 4-year," showing moderate retention outcomes. This distribution highlights the importance of sector-specific strategies when addressing student retention. Institutions with lower rates may benefit from targeted interventions, while those with higher rates could serve as models for effective retention practices.
 
 ```{r}
 # create visualization A: 
@@ -144,6 +150,7 @@ overall_persistence |>
     axis.text.x = element_text(size = 6, angle = 45, hjust = 1)
   )
 ```
+
 Across sectors, it looks like full-time students are substantially more likely to be retained into the second fall. Part-time status seems to have a relatively negligible effect on retention as compared to non-credential status, which may call into question the importance of degree-seeking status for non-full time students.
 
 # Discussion
