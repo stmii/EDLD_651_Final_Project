@@ -29,7 +29,7 @@ These findings suggest that institutional type and enrollment intensity interact
 
 This analysis utilized R [@R] and the following R libraries: tidyverse [@tidyverse], rio [@rio], knitr [@knitr], here [@here], and janitor [@janitor].
 ```{r}
-# load libraries
+# load libraries!
 library(tidyverse)
 library(rio)
 library(here)
