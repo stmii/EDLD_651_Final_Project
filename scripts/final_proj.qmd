@@ -14,7 +14,7 @@ execute:
 # Research Question(s)
 What is the relationship between institutional type (public vs. private, 2-year vs. 4-year) and student retention?
 
-Second RQ if we want/need one: How does enrollment intensity (full-time vs. part-time) interact with institutional type to influence persistence and retention?
+How does enrollment intensity (full-time vs. part-time) interact with institutional type to influence persistence and retention?
 
 # Introduction
 At a time when enrollment in higher education is declining, understanding how starting enrollment intensity (full-time vs. part-time) influences persistence and retention helps institutions identify barriers that affect student success and degree completion. 
