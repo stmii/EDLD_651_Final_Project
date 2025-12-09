@@ -80,7 +80,7 @@ sector_summary <-   overall_persistence_selected |>
   summarize(mean_retention = mean(second_fall_retention, na.rm = TRUE))
 
 ```
-We use data provided by the National Student Clearinghouse [@NationalStudentClearinghouse] to 
+We use data provided by the National Student Clearinghouse [@NationalStudentClearinghouse] to examine and provide descriptive statistics on second fall retention trends from 2015-2023 across US higher education institutions. We were particularly interested in grouping the analysis by institution sector (private for-profit 4-year, private nonprofit 4-year, public 2-year, public 4-year, and public PAB) and the intensity students started at (full time, part time, non-credential).
 
 # Results
 
@@ -90,7 +90,8 @@ We use data provided by the National Student Clearinghouse [@NationalStudentClea
 sector_summary |>
   kable(
     caption = "Average Retention by Sector (2015-2023)", 
-    col.names = c("Sector", "Mean Retention")
+    col.names = c("Sector", "Mean Retention"),
+    digits = 2
   )
 ```
 
@@ -110,6 +111,7 @@ overall_persistence |>
     y = "Retention Rate",
     color = "Sector"
   ) +
+  scale_color_discrete(breaks= c('Public 4-year', 'Private nonprofit 4-year', 'All', 'Public PAB', 'Public 2-year', 'Private for-profit 4-year')) +
   theme_minimal() +
   theme(
     panel.grid.major = element_blank(),

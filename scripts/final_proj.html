@@ -212,7 +212,7 @@ div.csl-indent {
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_retention =</span> <span class="fu">mean</span>(second_fall_retention, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We use data provided by the National Student Clearinghouse <span class="citation" data-cites="NationalStudentClearinghouse">(<a href="#ref-NationalStudentClearinghouse" role="doc-biblioref">National Student Clearinghouse Research Center, 2025</a>)</span> to</p>
+<p>We use data provided by the National Student Clearinghouse <span class="citation" data-cites="NationalStudentClearinghouse">(<a href="#ref-NationalStudentClearinghouse" role="doc-biblioref">National Student Clearinghouse Research Center, 2025</a>)</span> to examine and provide descriptive statistics on second fall retention trends from 2015-2023 across US higher education institutions. We were particularly interested in grouping the analysis by institution sector (private for-profit 4-year, private nonprofit 4-year, public 2-year, public 4-year, and public PAB) and the intensity students started at (full time, part time, non-credential).</p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
@@ -224,8 +224,9 @@ div.csl-indent {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sector_summary <span class="sc">|&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Average Retention by Sector (2015-2023)"</span>, </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sector"</span>, <span class="st">"Mean Retention"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sector"</span>, <span class="st">"Mean Retention"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -239,27 +240,27 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">All</td>
-<td style="text-align: right;">0.6797222</td>
+<td style="text-align: right;">0.68</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Private for-profit 4-year</td>
-<td style="text-align: right;">0.5155222</td>
+<td style="text-align: right;">0.52</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Private nonprofit 4-year</td>
-<td style="text-align: right;">0.7761333</td>
+<td style="text-align: right;">0.78</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Public 2-year</td>
-<td style="text-align: right;">0.5407889</td>
+<td style="text-align: right;">0.54</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Public 4-year</td>
-<td style="text-align: right;">0.7796667</td>
+<td style="text-align: right;">0.78</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Public PAB</td>
-<td style="text-align: right;">0.5720778</td>
+<td style="text-align: right;">0.57</td>
 </tr>
 </tbody>
 </table>
@@ -280,14 +281,15 @@ div.csl-indent {
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Retention Rate"</span>,</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Sector"</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">breaks=</span> <span class="fu">c</span>(<span class="st">'Public 4-year'</span>, <span class="st">'Private nonprofit 4-year'</span>, <span class="st">'All'</span>, <span class="st">'Public PAB'</span>, <span class="st">'Public 2-year'</span>, <span class="st">'Private for-profit 4-year'</span>)) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
