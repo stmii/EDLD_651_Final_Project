@@ -5,9 +5,10 @@ abstract: "While enrollment in higher education is decreasing, it is important t
 format: 
   html:
     toc: true
+    code-fold: true
 bibliography: references.bib
+csl: https://www.zotero.org/styles/apa
 execute:
-  echo: false
   warning: false
 ---
 
@@ -40,11 +41,11 @@ library(ggplot2)
 # must use:
 # [x]   pivot_longer
 # [x]    mutate
-# []    select
+# [x]    select
 # [x]    filter
 # [x]    pivot_wider
-# []    group_by
-# []    summarize
+# [x]    group_by
+# [x]    summarize
 
 # import and clean data
 overall_persistence <- import(
@@ -79,6 +80,7 @@ sector_summary <-   overall_persistence_selected |>
   summarize(mean_retention = mean(second_fall_retention, na.rm = TRUE))
 
 ```
+We use data provided by the National Student Clearinghouse [@NationalStudentClearinghouse] to 
 
 # Results
 

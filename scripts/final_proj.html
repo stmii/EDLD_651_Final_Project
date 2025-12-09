@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -117,17 +152,81 @@ div.csl-indent {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>At a time when enrollment in higher education is declining, understanding how starting enrollment intensity (full-time vs.&nbsp;part-time) influences persistence and retention helps institutions identify barriers that affect student success and degree completion.</p>
-<p>Colleges and universities serve increasingly diverse student populations, many of whom attend part-time due to financial, work, or family obligations. Examining differences across institutional types can reveal how structural and resource differences within higher education shape student outcomes.Research has consistently shown that first-generation and low-income students face higher risks of attrition, with dropout rates varying across institutional contexts <span class="citation" data-cites="CataldiEtAl2018">(<a href="#ref-CataldiEtAl2018" role="doc-biblioref">Cataldi, Bennett, and Chen 2018</a>)</span>. For example, national data indicate that first-generation students are more likely to leave college early, particularly at public and two-year institutions where resources are more limited <span class="citation" data-cites="Riehl1994">(<a href="#ref-Riehl1994" role="doc-biblioref">Riehl 1994</a>)</span>.</p>
-<p>Recent statistics further highlight that nearly 40% of college dropouts are first-generation students, underscoring the importance of institutional type in shaping persistence <span class="citation" data-cites="Bouchrika2024">(<a href="#ref-Bouchrika2024" role="doc-biblioref">Bouchrika 2024</a>)</span>.State-level data also demonstrate how retention rates differ across public institutions, with Oregon’s Higher Education Coordinating Commission reporting that 83% of students at four-year public institutions continued after their first year <span class="citation" data-cites="HECC2018">(<a href="#ref-HECC2018" role="doc-biblioref">Oregon Higher Education Coordinating Commission 2018</a>)</span>.</p>
+<p>Colleges and universities serve increasingly diverse student populations, many of whom attend part-time due to financial, work, or family obligations. Examining differences across institutional types can reveal how structural and resource differences within higher education shape student outcomes.Research has consistently shown that first-generation and low-income students face higher risks of attrition, with dropout rates varying across institutional contexts <span class="citation" data-cites="CataldiEtAl2018">(<a href="#ref-CataldiEtAl2018" role="doc-biblioref">Cataldi et al., 2018</a>)</span>. For example, national data indicate that first-generation students are more likely to leave college early, particularly at public and two-year institutions where resources are more limited <span class="citation" data-cites="Riehl1994">(<a href="#ref-Riehl1994" role="doc-biblioref">Riehl, 1994</a>)</span>.</p>
+<p>Recent statistics further highlight that nearly 40% of college dropouts are first-generation students, underscoring the importance of institutional type in shaping persistence <span class="citation" data-cites="Bouchrika2024">(<a href="#ref-Bouchrika2024" role="doc-biblioref">Bouchrika, 2024</a>)</span>.State-level data also demonstrate how retention rates differ across public institutions, with Oregon’s Higher Education Coordinating Commission reporting that 83% of students at four-year public institutions continued after their first year <span class="citation" data-cites="HECC2018">(<a href="#ref-HECC2018" role="doc-biblioref">Oregon Higher Education Coordinating Commission, 2018</a>)</span>.</p>
 <p>These findings suggest that institutional type and enrollment intensity interact to influence student success, making it critical for higher education leaders to design targeted retention strategies, improve academic support systems, and create flexible pathways that promote persistence for all students, regardless of their enrollment status.</p>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<p>This analysis utilized R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team 2025</a>)</span> and the following R libraries: tidyverse <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, rio <span class="citation" data-cites="rio">(<a href="#ref-rio" role="doc-biblioref">Chan et al. 2023</a>)</span>, knitr <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2014</a>)</span>, here <span class="citation" data-cites="here">(<a href="#ref-here" role="doc-biblioref">Müller 2025</a>)</span>, and janitor <span class="citation" data-cites="janitor">(<a href="#ref-janitor" role="doc-biblioref">Firke 2024</a>)</span>.</p>
+<p>This analysis utilized R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2025</a>)</span> and the following R libraries: tidyverse <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al., 2019</a>)</span>, rio <span class="citation" data-cites="rio">(<a href="#ref-rio" role="doc-biblioref">Chan et al., 2023</a>)</span>, knitr <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie, 2014</a>)</span>, here <span class="citation" data-cites="here">(<a href="#ref-here" role="doc-biblioref">Müller, 2025</a>)</span>, and janitor <span class="citation" data-cites="janitor">(<a href="#ref-janitor" role="doc-biblioref">Firke, 2024</a>)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries!</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># must use:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]   pivot_longer</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]    mutate</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]    select</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]    filter</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]    pivot_wider</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]    group_by</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [x]    summarize</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># import and clean data</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>overall_persistence <span class="ot">&lt;-</span> <span class="fu">import</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"data/PersistenceandRetention2025_Appendix.xlsx"</span>), </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">sheet =</span> <span class="st">"1. Overall"</span>, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">skip =</span> <span class="dv">2</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"20"</span>),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"entering_cohort_year"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"rate"</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"Metric"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"rate"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">entering_cohort_year =</span> <span class="fu">as.numeric</span>(entering_cohort_year))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#  overall_persistence </span><span class="al">TEST</span><span class="co"> CODE</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co">#  names(overall_persistence) </span><span class="al">TEST</span><span class="co"> CODE</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Select()columns for analysis</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  overall_persistence_selected <span class="ot">&lt;-</span> overall_persistence <span class="sc">|&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(starting_enrollment_intensity <span class="sc">==</span> <span class="st">"All"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(entering_cohort_year, sector, second_fall_retention)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Groupby() summary of average retention by   #sector across all years</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>sector_summary <span class="ot">&lt;-</span>   overall_persistence_selected <span class="sc">|&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sector) <span class="sc">|&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_retention =</span> <span class="fu">mean</span>(second_fall_retention, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We use data provided by the National Student Clearinghouse <span class="citation" data-cites="NationalStudentClearinghouse">(<a href="#ref-NationalStudentClearinghouse" role="doc-biblioref">National Student Clearinghouse Research Center, 2025</a>)</span> to</p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Bar chart: mean retention by sector</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Need to make title larger</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sector_summary <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Average Retention by Sector (2015-2023)"</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sector"</span>, <span class="st">"Mean Retention"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Average Retention by Sector (2015-2023)</caption>
@@ -168,6 +267,28 @@ div.csl-indent {
 </div>
 <p>Retention rates vary significantly by sector. Among individual sectors, “Public 4-year” institutions and “Private nonprofit 4-year” institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence. In contrast, “Private for-profit 4-year” institutions have the lowest retention rate, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. “Public 2-year” and “Public PAB” sectors fall just above Private for-profit 4-year”, showing moderate retention outcomes. This distribution highlights the importance of sector-specific strategies when addressing student retention. Institutions with lower rates may benefit from targeted interventions, while those with higher rates could serve as models for effective retention practices.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create visualization A: </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>overall_persistence <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(starting_enrollment_intensity <span class="sc">==</span> <span class="st">"All"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>entering_cohort_year, <span class="at">y=</span>second_fall_retention)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> sector)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Second Fall Retention by Sector"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cohort Year"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Retention Rate"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Sector"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -178,6 +299,30 @@ div.csl-indent {
 </div>
 <p>Retention rates show differences in the various sectors over time. Again, private nonprofit and public 4-year institutions consistently maintain higher second-fall retention compared to other institutions, with private for-profit and public 2-year institutions showing the lowest overall retention rates. That said, for-profit institutions have seen an increase in retention from 2020 to 2023, even surpassing public 4-year institutions in 2023.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>overall_persistence <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(starting_enrollment_intensity <span class="sc">!=</span> <span class="st">"All"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">"Starting Intensity"</span> <span class="ot">=</span> starting_enrollment_intensity, <span class="st">"Sector"</span> <span class="ot">=</span> sector) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">"Average Second Fall Retention (2015-2023)"</span> <span class="ot">=</span> <span class="fu">mean</span>(second_fall_retention)) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Sector</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">Average Second Fall Retention (2015-2023)</span><span class="st">`</span>, <span class="at">fill =</span> <span class="st">`</span><span class="at">Starting Intensity</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Second Fall Retention by Sector and Starting Intensity (2015-2023)"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sector"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Retention Rate"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Starting Intensity"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -196,36 +341,39 @@ div.csl-indent {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-Bouchrika2024" class="csl-entry" role="listitem">
-Bouchrika, Imed. 2024. <span>“College Dropout Rates: 2024 Statistics by Race, Gender &amp; Income.”</span> Research.com. <a href="https://research.com/universities-colleges/college-dropout-rates">https://research.com/universities-colleges/college-dropout-rates</a>.
+Bouchrika, I. (2024). <em>College dropout rates: 2024 statistics by race, gender &amp; income</em>. Research.com. <a href="https://research.com/universities-colleges/college-dropout-rates">https://research.com/universities-colleges/college-dropout-rates</a>
 </div>
 <div id="ref-CataldiEtAl2018" class="csl-entry" role="listitem">
-Cataldi, Emily F., Christopher T. Bennett, and Xianglei Chen. 2018. <span>“First-Generation Students: College Access, Persistence, and Postbachelor’s Outcomes.”</span> NCES 2018-421. U.S. Department of Education, National Center for Education Statistics. <a href="https://nces.ed.gov/pubs2018/2018421.pdf">https://nces.ed.gov/pubs2018/2018421.pdf</a>.
+Cataldi, E. F., Bennett, C. T., &amp; Chen, X. (2018). <em>First-generation students: College access, persistence, and postbachelor’s outcomes</em> (NCES 2018-421). U.S. Department of Education, National Center for Education Statistics. <a href="https://nces.ed.gov/pubs2018/2018421.pdf">https://nces.ed.gov/pubs2018/2018421.pdf</a>
 </div>
 <div id="ref-rio" class="csl-entry" role="listitem">
-Chan, Chung-hong, Thomas J. Leeper, Jason Becker, and David Schoch. 2023. <em>Rio: A Swiss-Army Knife for Data File i/o</em>. <a href="https://cran.r-project.org/package=rio">https://cran.r-project.org/package=rio</a>.
+Chan, C., Leeper, T. J., Becker, J., &amp; Schoch, D. (2023). <em>Rio: A swiss-army knife for data file i/o</em>. <a href="https://cran.r-project.org/package=rio">https://cran.r-project.org/package=rio</a>
 </div>
 <div id="ref-janitor" class="csl-entry" role="listitem">
-Firke, Sam. 2024. <em>Janitor: Simple Tools for Examining and Cleaning Dirty Data</em>. <a href="https://doi.org/10.32614/CRAN.package.janitor">https://doi.org/10.32614/CRAN.package.janitor</a>.
+Firke, S. (2024). <em>Janitor: Simple tools for examining and cleaning dirty data</em>. <a href="https://doi.org/10.32614/CRAN.package.janitor">https://doi.org/10.32614/CRAN.package.janitor</a>
 </div>
 <div id="ref-here" class="csl-entry" role="listitem">
-Müller, Kirill. 2025. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://doi.org/10.32614/CRAN.package.here">https://doi.org/10.32614/CRAN.package.here</a>.
+Müller, K. (2025). <em>Here: A simpler way to find your files</em>. <a href="https://doi.org/10.32614/CRAN.package.here">https://doi.org/10.32614/CRAN.package.here</a>
+</div>
+<div id="ref-NationalStudentClearinghouse" class="csl-entry" role="listitem">
+National Student Clearinghouse Research Center. (2025). <em>Persistence and retention: Fall 2023 beginning postsecondary student cohort</em>. National Student Clearinghouse. <a href="https://nscresearchcenter.org/persistence-retention/">https://nscresearchcenter.org/persistence-retention/</a>
 </div>
 <div id="ref-HECC2018" class="csl-entry" role="listitem">
-Oregon Higher Education Coordinating Commission. 2018. <span>“Statewide Higher Education Snapshots.”</span> Higher Education Coordinating Commission. <a href="https://www.oregon.gov/highered/strategy-research/Pages/snapshots-archive.aspx">https://www.oregon.gov/highered/strategy-research/Pages/snapshots-archive.aspx</a>.
+Oregon Higher Education Coordinating Commission. (2018). <em>Statewide higher education snapshots</em>. Higher Education Coordinating Commission. <a href="https://www.oregon.gov/highered/strategy-research/Pages/snapshots-archive.aspx">https://www.oregon.gov/highered/strategy-research/Pages/snapshots-archive.aspx</a>
 </div>
 <div id="ref-R" class="csl-entry" role="listitem">
-R Core Team. 2025. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. (2025). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
 </div>
 <div id="ref-Riehl1994" class="csl-entry" role="listitem">
-Riehl, Ronald J. 1994. <span>“The Academic Preparation, Aspirations, and First-Year Performance of First-Generation Students.”</span> <em>College and University</em> 70 (1): 14–19. <a href="https://eric.ed.gov/?id=EJ499539">https://eric.ed.gov/?id=EJ499539</a>.
+Riehl, R. J. (1994). The academic preparation, aspirations, and first-year performance of first-generation students. <em>College and University</em>, <em>70</em>(1), 14–19. <a href="https://eric.ed.gov/?id=EJ499539">https://eric.ed.gov/?id=EJ499539</a>
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the <span class="nocase">tidyverse</span>. <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>
 </div>
 <div id="ref-knitr" class="csl-entry" role="listitem">
-Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC.
+Xie, Y. (2014). Knitr: A comprehensive tool for reproducible research in <span>R</span>. In V. Stodden, F. Leisch, &amp; R. D. Peng (Eds.), <em>Implementing reproducible computational research</em>. Chapman; Hall/CRC.
 </div>
 </div></section></div></main>
 <!-- /main column -->
