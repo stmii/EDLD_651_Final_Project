@@ -26,6 +26,7 @@ Recent statistics further highlight that nearly 40% of college dropouts are firs
 These findings suggest that institutional type and enrollment intensity interact to influence student success, making it critical for higher education leaders to design targeted retention strategies, improve academic support systems, and create flexible pathways that promote persistence for all students, regardless of their enrollment status.
 
 # Methods
+The National Student Clearinghouse Research Center’s retention data comes from enrollment records submitted directly by colleges and universities across the U.S. It tracks whether first-time students remain enrolled at their original institution (retention) or at any institution (persistence) into their second year. Data is collected from participating institutions’ student information systems and covers all sectors and enrollment intensities.
 
 This analysis utilized R [@R] and the following R libraries: tidyverse [@tidyverse], rio [@rio], knitr [@knitr], here [@here], and janitor [@janitor].
 ```{r}
