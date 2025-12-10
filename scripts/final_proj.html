@@ -135,7 +135,7 @@ div.csl-indent {
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    While enrollment in higher education is decreasing, it is important to understand the relationships that different aspects of higher education institutions have with student retention. In this paper, we examine the relationships between institution type, starting intensity, and second fall retention rates in the United States from 2015-2023. We find that public and private 4-year institutions consistently have the highest retention rates, while private non-profit institutions consistently have the lowest retention rates. Furthermore, students starting at full time status are more likely in all sectors to be retained into the second fall. These findings can aide higher education policymakers in understanding both what can lead to student success and to evaluate part-time and non-credential status programs for possible improvements in retention.
+    While enrollment in higher education is decreasing, it is important to understand the relationships that different aspects of higher education institutions and enrollment patterns have with student retention. In this paper, we examine the relationships between institution type, starting intensity, and second fall retention rates in the United States from 2015-2023. We find that public and private 4-year institutions consistently have the highest retention rates, while private non-profit institutions consistently have the lowest retention rates. Furthermore, students starting at full time status are more likely in all sectors to be retained into the second fall. These findings can aide higher education policymakers in understanding both what can lead to student success and to evaluate part-time and non-credential status programs for possible improvements in retention.
   </div>
 </div>
 
@@ -157,7 +157,6 @@ div.csl-indent {
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<p>The National Student Clearinghouse Research Center’s retention data comes from enrollment records submitted directly by colleges and universities across the U.S. It tracks whether first-time students remain enrolled at their original institution (retention) or at any institution (persistence) into their second year. Data is collected from participating institutions’ student information systems and covers all sectors and enrollment intensities.</p>
 <p>This analysis utilized R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2025</a>)</span> and the following R libraries: tidyverse <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al., 2019</a>)</span>, rio <span class="citation" data-cites="rio">(<a href="#ref-rio" role="doc-biblioref">Chan et al., 2023</a>)</span>, knitr <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie, 2014</a>)</span>, here <span class="citation" data-cites="here">(<a href="#ref-here" role="doc-biblioref">Müller, 2025</a>)</span>, and janitor <span class="citation" data-cites="janitor">(<a href="#ref-janitor" role="doc-biblioref">Firke, 2024</a>)</span>.</p>
 <div class="cell">
 <details class="code-fold">
@@ -213,6 +212,7 @@ div.csl-indent {
 </details>
 </div>
 <p>We use data provided by the National Student Clearinghouse <span class="citation" data-cites="NationalStudentClearinghouse">(<a href="#ref-NationalStudentClearinghouse" role="doc-biblioref">National Student Clearinghouse Research Center, 2025</a>)</span> to examine and provide descriptive statistics on second fall retention trends from 2015-2023 across US higher education institutions. We were particularly interested in grouping the analysis by institution sector (private for-profit 4-year, private nonprofit 4-year, public 2-year, public 4-year, and public PAB) and the intensity students started at (full time, part time, non-credential).</p>
+<p>The National Student Clearinghouse Research Center’s retention data comes from enrollment records submitted directly by colleges and universities across the U.S. It tracks whether first-time students remain enrolled at their original institution (retention) or at any institution (persistence) into their second year. Data is collected from participating institutions’ student information systems and covers all sectors and enrollment intensities.</p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
@@ -223,14 +223,14 @@ div.csl-indent {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Need to make title larger</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sector_summary <span class="sc">|&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Average Retention by Sector (2015-2023)"</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Average Second Fall Retention by Sector (2015-2023)"</span>, </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sector"</span>, <span class="st">"Mean Retention"</span>),</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Average Retention by Sector (2015-2023)</caption>
+<caption>Average Second Fall Retention by Sector (2015-2023)</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Sector</th>
