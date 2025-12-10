@@ -11,8 +11,7 @@ csl: https://www.zotero.org/styles/apa
 execute:
   warning: false
 ---
-
-# Research Question(s)
+# Research Questions
 What is the relationship between institutional type (public vs. private, 2-year vs. 4-year) and student retention?
 
 How does enrollment intensity (full-time vs. part-time) interact with institutional type to influence persistence and retention?
