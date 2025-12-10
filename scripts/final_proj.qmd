@@ -94,10 +94,20 @@ sector_summary |>
     col.names = c("Sector", "Mean Retention"),
     digits = 2
   )
+
+pub_4_mean_ret <- sector_summary$mean_retention[sector_summary$sector == "Public 4-year"]
+
+pri_np_4_mean_ret <- sector_summary$mean_retention[sector_summary$sector == "Private nonprofit 4-year"]
+
+pub_2_mean_ret <- sector_summary$mean_retention[sector_summary$sector == "Public 2-year"]
+
+pub_pab_mean_ret <- sector_summary$mean_retention[sector_summary$sector == "Public PAB"]
+
+pri_fp_4_mean_ret <- sector_summary$mean_retention[sector_summary$sector == "Private for-profit 4-year"]
 ```
 
-Retention rates vary significantly by sector. Among individual sectors, "Public 4-year" institutions and "Private nonprofit 4-year" institutions demonstrate higher retention rates, suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence.
-In contrast, "Private for-profit 4-year" institutions have the lowest retention rate, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. "Public 2-year" and "Public PAB" sectors fall just above "Private for-profit 4-year", showing moderate retention outcomes.
+Retention rates vary significantly by sector. Among individual sectors, "Public 4-year" institutions and "Private nonprofit 4-year" institutions demonstrated higher mean retention rates from 2015-2023 (`r round(pub_4_mean_ret, digits = 2)` and `r round(pri_np_4_mean_ret, digits = 2)`, respectively), suggesting these types of institutions may offer more consistent support structures or resources that promote student persistence.
+In contrast, "Private for-profit 4-year" institutions have the lowest mean retention rate over this period, at `r round(pri_fp_4_mean_ret, digits = 2)`, which may reflect challenges such as limited student services, financial instability, or differences in student demographics. "Public 2-year" and "Public PAB" sectors, at `r round(pub_2_mean_ret, digits = 2)` and `r round(pub_pab_mean_ret, digits = 2)`, respectively, fell just above "Private for-profit 4-year", showing moderate retention outcomes.
 This distribution highlights the importance of sector-specific strategies when addressing student retention. Institutions with lower rates may benefit from targeted interventions, while those with higher rates could serve as models for effective retention practices.
 
 ```{r}
